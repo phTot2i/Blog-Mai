@@ -78,6 +78,10 @@
         padding-right: 12px;
     }
 
+    .notify-container {
+        width: 60vw;
+    }
+
     .skill-item {
         width: 100%;
     }
