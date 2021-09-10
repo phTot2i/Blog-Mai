@@ -15,8 +15,9 @@ const nextBtn = $('.btn-next');
 const prevBtn = $('.btn-prev');
 const randomBtn = $('.btn-random');
 const repeatBtn = $('.btn-repeat');
-
-
+const timeLeft = $('.time-left');
+const timeRight = $('.time-right');
+const volumn = $('.volume');
 
 const app = {
     currentIndex: 0,
@@ -34,7 +35,7 @@ const app = {
             id: 1,
             name: 'Cuới thôi',
             singer: 'Bray-Masew',
-            path: './assets/songs/cuoi-thoi.mp3',
+            path: './assets/songs/Cưới Thôi - Masew x Masiu x B Ray x TAP ( Lyrics Audio ).mp3',
             image: './assets/img/masew.jpg'
         },
         {
@@ -152,7 +153,7 @@ const app = {
 
         // Xử lý cd quay và dừng
         const cdThumbAnimate = cdThumb.animate([
-            { transform: 'rotate(360deg' }
+            { transform: 'rotate(360deg)' }
         ], {
             duration: 100000,
             iterations: Infinity
@@ -200,8 +201,18 @@ const app = {
                     const progressPercent = (audio.currentTime / audio.duration * 100);
                     progress.value = progressPercent;
                     // console.log(progress.value)
+                    app.loadTimeLeft()
                 }
             }
+
+            // Khi thay đổi âm lượng bài hát
+            volumn.oninput = function () {
+                audio.volume = this.value / 100;
+            }
+            // audio.onvolumechange = function () {
+            //     volumn
+            // }
+
             // Tua
             progress.oninput = function () {
                 audio.currentTime = this.value * audio.duration / 100;
@@ -226,7 +237,6 @@ const app = {
             audio.play();
             app.render();
             app.scrollToActiveSong();
-
         }
 
         // random song
@@ -272,9 +282,7 @@ const app = {
             }
             if (optionEl) {
                 alert('Nhạc hay thì xin 1 like')
-
             }
-
         }
     },
     loadCurrentSong: function () {
@@ -282,7 +290,23 @@ const app = {
         heading.textContent = this.currentSong.name;
         cdThumb.style.backgroundImage = `url('${this.currentSong.image}')`;
         audio.src = this.currentSong.path;
+        app.loadTimeRight();
 
+    },
+    loadTimeRight: function () {
+        audio.onloadedmetadata = function () {
+            var timeTotal = Math.floor(audio.duration);
+            var minutesRight = Math.floor(timeTotal / 60);
+            var secondsRight = timeTotal % 60;
+            console.log(timeTotal)
+            timeRight.innerText = `${minutesRight < 10 ? "0" + minutesRight : minutesRight}:${secondsRight < 10 ? "0" + secondsRight : secondsRight}`;
+        }
+    },
+    loadTimeLeft: function () {
+        var timeTotal = Math.floor(audio.currentTime);
+        var minutesRight = Math.floor(timeTotal / 60);
+        var secondsRight = timeTotal % 60;
+        timeLeft.innerText = `${minutesRight < 10 ? "0" + minutesRight : minutesRight}:${secondsRight < 10 ? "0" + secondsRight : secondsRight}`;
     },
     loadConfig: function () {
         this.isRandom = this.config.isRandom;
