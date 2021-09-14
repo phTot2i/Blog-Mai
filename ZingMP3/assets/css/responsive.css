@@ -144,3 +144,8 @@
     }
 }
 
+@media (max-width: 21.25rem) {
+    .control {
+        padding: 0;
+    }
+}
