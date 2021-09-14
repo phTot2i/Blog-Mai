@@ -3,9 +3,6 @@
         left: 70%;
     }
     
-    .logo-img-t-m {
-        display: inline-block;
-    }
 }
 
 /* tablet and mobile */
@@ -20,6 +17,11 @@
         text-align: center;
         padding: 0;
     }
+
+    .logo-img-t-m {
+        display: inline-block;
+    }
+
     .nav-item {
         justify-content: center;
         padding: 16px 20px;
