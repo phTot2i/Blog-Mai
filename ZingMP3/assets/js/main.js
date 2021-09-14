@@ -144,7 +144,7 @@ const app = {
     ],
     render: function () {
         var htmls = this.songs.map(function (song, index) {
-            return `<div class="song${app.currentIndex === index ? ' active' : ''} is-flex">
+            return `<div class="song${app.currentIndex === index ? ' active' : ''} is-flex" data-index="${index}">
                             <div class="song-left is-flex">
                                 <div class="thumb" data-index="${index}" style="background-image: url('${song.image}')!important">
                                     <i class="ri-play-fill icon-song-play"></i>
@@ -292,7 +292,8 @@ const app = {
 
             // Lắng nghe hành vi click vào playlist
             songsList.onclick = function (e) {
-                const thumbEl = e.target.closest('.song:not(.active) .thumb');
+                const thumbEl = e.target.closest('.song:not(.active)');
+                // const thumbEl = e.target.closest('.song:not(.active) .thumb');
                 const optionEl = e.target.closest('.icon-options');
                 const favariteEl = e.target.closest('.icon-heart');
                 // console.log(thumbEl, optionEl, favariteEl);
