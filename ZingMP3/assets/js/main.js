@@ -303,8 +303,10 @@ const app = {
                         app.loadCurrentSong();
                         PlayFunc();
                         audio.play();
-                        app.render();
-                        app.loadTotalTime();
+                        setTimeout(function () {
+                            app.render();
+                            app.loadTotalTime();
+                        }, 100)
 
                     }
                 }
