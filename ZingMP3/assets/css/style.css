@@ -863,7 +863,7 @@ html {
     padding: 32px 16px 30% 16px;
     text-align: center;
     z-index: 20000;
-    transition: all 0.35s linear;
+    transition: all 0.35s ease-in-out;
     display: none;
 }
 
