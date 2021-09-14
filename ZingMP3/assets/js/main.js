@@ -323,10 +323,13 @@ const app = {
                 app.nextSong();
                 PlayFunc();
                 audio.play();
-                app.render();
+                // app.render();
                 app.scrollToActiveSong();
-                app.loadTotalTime();
-
+                // app.loadTotalTime();
+                setTimeout(function () {
+                    app.render();
+                    app.loadTotalTime();
+                }, 100)
             }
         })
 
@@ -337,7 +340,10 @@ const app = {
                 audio.play();
                 app.render();
                 app.loadTotalTime();
-
+                setTimeout(function () {
+                    app.render();
+                    app.loadTotalTime();
+                }, 100)
             }
         })
 
