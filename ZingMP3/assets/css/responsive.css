@@ -2,6 +2,10 @@
     .time-total {
         left: 70%;
     }
+    
+    .logo-img-t-m {
+        display: inline-block;
+    }
 }
 
 /* tablet and mobile */
