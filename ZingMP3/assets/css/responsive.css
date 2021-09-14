@@ -82,6 +82,7 @@
 
     .songs-list {
         height: calc(100vh - 415px);
+        margin-bottom: 70px;
     }
 
     /* CONTROL */
