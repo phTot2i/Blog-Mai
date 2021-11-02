@@ -4,6 +4,8 @@ const seconds = document.getElementById('clock-seconds')
 
 const audio = document.querySelector('audio')
 
+audio.volume = 0.2
+
 const initClock = function () {
     let date = new Date()
 
