@@ -7,6 +7,7 @@ Hello. I'm Pham Bao
 2. [Todo List with REDUX](https://todo-app-redux272.netlify.app)
 3. [Calculator](https://calculator-react272.netlify.app)
 4. [Youtube Search](https://youtube-search272.netlify.app)
+5. [Admin Dashboard](https://admin-dashboard272.netlify.app) Zoom in: 75%
 
 # LIST DEMO
 
